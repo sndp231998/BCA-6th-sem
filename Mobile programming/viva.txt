@@ -1,0 +1,439 @@
+1.	Design a User Interface using relative layout to enter id, name, class, gender and other details of student.
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textViewId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ID:"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewId"
+        android:layout_marginTop="8dp"
+        android:inputType="number"/>
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name:"
+        android:layout_below="@id/editTextId"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewName"
+        android:layout_marginTop="8dp"
+        android:inputType="text"/>
+
+    <TextView
+        android:id="@+id/textViewClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Class:"
+        android:layout_below="@id/editTextName"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextClass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewClass"
+        android:layout_marginTop="8dp"
+        android:inputType="text"/>
+
+    <TextView
+        android:id="@+id/textViewGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gender:"
+        android:layout_below="@id/editTextClass"
+        android:layout_marginTop="16dp"/>
+
+    <Spinner
+        android:id="@+id/spinnerGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewGender"
+        android:layout_marginTop="8dp"
+        android:entries="@array/gender_array"/>
+
+    <Button
+        android:id="@+id/buttonSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinnerGender"
+        android:layout_marginTop="16dp"
+        android:text="Submit"/>
+
+</RelativeLayout>
+
+<resources>
+    <string-array name="gender_array">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
+</resources>
+
+//---------------------------------------------------------------------------------//
+2.	Design a User Interface using constraint layout to enter book details including book
+id, name, isbn, price, etc.
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textViewBookId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Book ID:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextBookId"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/textViewBookId"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:inputType="number"/>
+
+    <TextView
+        android:id="@+id/textViewBookName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Book Name:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextBookId"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextBookName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/textViewBookName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextBookId"
+        android:inputType="text"/>
+
+    <TextView
+        android:id="@+id/textViewISBN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ISBN:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextBookName"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextISBN"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/textViewISBN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextBookName"
+        android:inputType="text"/>
+
+    <TextView
+        android:id="@+id/textViewPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextISBN"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/textViewPrice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextISBN"
+        android:inputType="numberDecimal"/>
+
+    <Button
+        android:id="@+id/buttonSubmit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPrice"
+        android:text="Submit"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+//----------------------------------------------------------------------------------------------
+3.	Develop android application to transfer your symbol no. and name from one activity to another.
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        EditText sno = findViewById(R.id.sno);
+        EditText snm = findViewById(R.id.snm);
+        Button btn = findViewById(R.id.btn);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String symbolNo = sno.getText().toString();
+                String name = snm.getText().toString();
+
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                intent.putExtra("symbolNo", symbolNo);
+                intent.putExtra("name", name);
+                startActivity(intent);
+            }
+        });
+    }
+}
+
+public class SecondActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_second);
+
+        TextView no = findViewById(R.id.no);
+        TextView nm = findViewById(R.id.nm);
+
+        // Get data from Intent
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String symbolNo = extras.getString("symbolNo");
+            String name = extras.getString("name");
+
+            // Display data in TextViews
+            textViewSymbolNo.setText("Symbol No.: " + symbolNo);
+            textViewName.setText("Name: " + name);
+        }
+    }
+}
+
+4.	Develop an android application to calculate simple interest. Your application should contain fields to input principal, rate, time and button for event handling. Calculate and display result in a TextView.
+
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+         EditText p = findViewById(R.id.p);
+         EditText r = findViewById(R.id.r);
+         EditText t = findViewById(R.id.t);
+        Button btn = findViewById(R.id.btn);
+        final TextView show = findViewById(R.id.display);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Get values from EditText
+                double principal = Double.parseDouble(p.getText().toString());
+                double rate = Double.parseDouble(r.getText().toString());
+                double time = Double.parseDouble(t.getText().toString());
+
+                // Calculate simple interest
+                double simpleInterest = (principal * rate * time) / 100;
+
+                // Display result in TextView
+                textViewResult.setText("Simple Interest: " + String.valueOf(simpleInterest));
+            }
+        });
+    }
+}
+//----------------------------------------------------------------------------------
+
+5. Develop an android application to calculate perimeter of rectangle using fragment.
+
+main.xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calculate Perimeter"/>
+
+</RelativeLayout>
+
+fragment.xml
+-----------
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/length"
+        />
+
+    <EditText
+        android:id="@+id/width"
+       "/>
+
+    <TextView
+        android:id="@+id/result"
+        />
+
+</RelativeLayout>
+
+
+(frg backend )
+-----------------------
+
+public class RectangleCalculatorFragment extends Fragment {
+
+     EditText l;
+     EditText w;
+     TextView r;
+
+    public RectangleCalculatorFragment() {
+        // Required empty public constructor
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment , container, false);
+
+         l= view.findViewById(R.id.length);
+        w = view.findViewById(R.id.width);
+       r = view.findViewById(R.id.result);
+
+        Button Calculate = view.findViewById(R.id.btn);
+        Calculate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calculatePerimeter();
+            }
+        });
+
+        return view;
+    }
+
+    private void calculatePerimeter() {
+        try {
+            double length = Double.parseDouble(l.getText().toString());
+            double width = Double.parseDouble(w.getText().toString());
+
+            double perimeter = 2 * (length + width);
+
+            textViewResult.setText("Perimeter: " + perimeter);
+        } catch (NumberFormatException e) {
+            r.setText("Please enter valid values.");
+        }
+    }
+}
+
+main (backend)
+---------------
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        final FragmentManager fragmentManager = getSupportFragmentManager();
+        final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        final RectangleCalculatorFragment fragment = new RectangleCalculatorFragment();
+        fragmentTransaction.add(R.id.fragmentContainer, fragment);
+        fragmentTransaction.commit();
+
+        Button btncalc = findViewById(R.id.btn);
+        btncalc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fragment.calculatePerimeter();
+            }
+        });
+    }
+}
+//--------------------------------------------------------------------------------
+
+Develop an android application to insert id, name and address using SQLite.
+------------------------------------------------------------------------------
+
+public class DatabaseHelper extends SQLiteOpenHelper {
+
+    private static final String DATABASE_NAME = "mydatabase";
+    private static final int DATABASE_VERSION = 1;
+
+    public static final String TABLE_NAME = "mytable";
+    public static final String COLUMN_ID = "id";
+    public static final String COLUMN_NAME = "name";
+    public static final String COLUMN_ADDRESS = "address";
+
+    private static final String TABLE_CREATE =
+            "CREATE TABLE " + TABLE_NAME + " (" +
+                    COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    COLUMN_NAME + " TEXT, " +
+                    COLUMN_ADDRESS + " TEXT);";
+
+    public DatabaseHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL(TABLE_CREATE);
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        onCreate(db);
+    }
+}
+
+
+
+
+
